@@ -27,4 +27,6 @@ const _$ResolutionEnumMap = {
   Resolution.RESOLUTION_480: '480p',
   Resolution.RESOLUTION_720: '720p',
   Resolution.RESOLUTION_1080: '1080p',
+  Resolution.RESOLUTION_1440:"1440p",
+  Resolution.RESOLUTION_2160:"2160p"
 };
