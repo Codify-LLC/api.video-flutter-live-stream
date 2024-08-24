@@ -23,7 +23,15 @@ enum Resolution {
 
   /// 1920x1080
   @JsonValue("1080p")
-  RESOLUTION_1080(size: Size(1920, 1080));
+  RESOLUTION_1080(size: Size(1920, 1080)),
+
+  /// 2560x1440
+  @JsonValue("1440p")
+  RESOLUTION_1440(size: Size(2560, 1440)),
+
+  /// 3840x2160
+  @JsonValue("2160p")
+  RESOLUTION_2160(size: Size(3840, 2160));
 
   const Resolution({required this.size});
 
