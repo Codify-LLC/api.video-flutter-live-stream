@@ -50,11 +50,6 @@ class VideoConfig {
         return 2000000;
       case Resolution.RESOLUTION_1080:
         return 3500000;
-      case Resolution.RESOLUTION_1440:
-        return 3500000;
-      case Resolution.RESOLUTION_2160:
-        return 3500000;
-
     }
   }
 }
