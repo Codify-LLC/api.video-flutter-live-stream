@@ -37,6 +37,7 @@ fun String.toResolution(): Size {
         "720p" -> Size(1280, 720)
         "1080p" -> Size(1920, 1080)
         "2160p" -> Size(3480,2160)
+        "1440p" -> Size(2560,1440)
         else -> throw IllegalArgumentException("Unknown resolution: $this")
     }
 }

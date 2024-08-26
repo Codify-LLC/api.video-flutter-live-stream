@@ -52,7 +52,8 @@ class VideoConfig {
         return 3500000;
       case Resolution.RESOLUTION_2160:
         return 3500000;
-
+      default:
+        throw ArgumentError('Unknown resolution: $resolution');
     }
   }
 }
