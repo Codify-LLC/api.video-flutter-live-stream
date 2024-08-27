@@ -7,26 +7,16 @@ part of 'video_config.dart';
 // **************************************************************************
 
 VideoConfig _$VideoConfigFromJson(Map<String, dynamic> json) => VideoConfig(
-      bitrate: json['bitrate'] as int,
-      resolution:
-          $enumDecodeNullable(_$ResolutionEnumMap, json['resolution']) ??
-              Resolution.RESOLUTION_720,
-      fps: json['fps'] as int? ?? 30,
+      bitrate: (json['bitrate'] as num).toInt(),
+      height: (json['height'] as num?)?.toInt() ?? 1280,
+      width: (json['width'] as num?)?.toInt() ?? 720,
+      fps: (json['fps'] as num?)?.toInt() ?? 30,
     );
 
 Map<String, dynamic> _$VideoConfigToJson(VideoConfig instance) =>
     <String, dynamic>{
       'bitrate': instance.bitrate,
-      'resolution': _$ResolutionEnumMap[instance.resolution]!,
+      'height': instance.height,
+      'width': instance.width,
       'fps': instance.fps,
     };
-
-const _$ResolutionEnumMap = {
-  Resolution.RESOLUTION_240: '240p',
-  Resolution.RESOLUTION_360: '360p',
-  Resolution.RESOLUTION_480: '480p',
-  Resolution.RESOLUTION_720: '720p',
-  Resolution.RESOLUTION_1080: '1080p',
-  Resolution.RESOLUTION_1440:'1440p',
-  Resolution.RESOLUTION_2160:'2160p'
-};

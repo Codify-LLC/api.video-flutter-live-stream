@@ -7,7 +7,7 @@ part of 'audio_config.dart';
 // **************************************************************************
 
 AudioConfig _$AudioConfigFromJson(Map<String, dynamic> json) => AudioConfig(
-      bitrate: json['bitrate'] as int? ?? 128000,
+      bitrate: (json['bitrate'] as num?)?.toInt() ?? 128000,
       channel: $enumDecodeNullable(_$ChannelEnumMap, json['channel']) ??
           Channel.stereo,
       sampleRate:

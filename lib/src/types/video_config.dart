@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'dart:ui';
 
-import 'resolution.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'video_config.g.dart';
 
@@ -11,7 +11,9 @@ class VideoConfig {
   int bitrate;
 
   /// The live streaming video resolution
-  Resolution resolution;
+  int height;
+
+  int width;
 
   /// The video frame rate in fps
   int fps;
@@ -19,16 +21,12 @@ class VideoConfig {
   /// Creates a [VideoConfig] instance
   VideoConfig(
       {required this.bitrate,
-      this.resolution = Resolution.RESOLUTION_720,
+      this.height = 1280,
+        this.width = 720,
       this.fps = 30})
       : assert(bitrate > 0),
         assert(fps > 0);
 
-  /// Creates a [VideoConfig] instance where bitrate is set according to the given [resolution].
-  VideoConfig.withDefaultBitrate(
-      {this.resolution = Resolution.RESOLUTION_720, this.fps = 30})
-      : assert(fps > 0),
-        bitrate = _getDefaultBitrate(resolution);
 
   /// Creates a [VideoConfig] from a [json] map.
   factory VideoConfig.fromJson(Map<String, dynamic> json) =>
@@ -37,25 +35,4 @@ class VideoConfig {
   /// Creates a json map from a [VideoConfig].
   Map<String, dynamic> toJson() => _$VideoConfigToJson(this);
 
-  /// Returns the default bitrate for the given [resolution].
-  static int _getDefaultBitrate(Resolution resolution) {
-    switch (resolution) {
-      case Resolution.RESOLUTION_240:
-        return 800000;
-      case Resolution.RESOLUTION_360:
-        return 1000000;
-      case Resolution.RESOLUTION_480:
-        return 1300000;
-      case Resolution.RESOLUTION_720:
-        return 2000000;
-      case Resolution.RESOLUTION_1080:
-        return 3500000;
-      case Resolution.RESOLUTION_2160:
-        return 3500000;
-      case Resolution.RESOLUTION_1440:
-        return 3500000;
-      default:
-        throw ArgumentError('Unknown resolution: $resolution');
-    }
-  }
 }
