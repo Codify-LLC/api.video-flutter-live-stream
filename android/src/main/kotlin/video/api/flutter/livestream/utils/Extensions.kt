@@ -8,7 +8,7 @@ import io.github.thibaultbee.streampack.data.VideoConfig
 fun Map<String, Any>.toVideoConfig(): VideoConfig {
     return VideoConfig(
         startBitrate = this["bitrate"] as Int,
-        resolution = Size(this["width"], this["height"]),
+        resolution = Size(this["width"] as Int, this["height"] as Int),
         fps = this["fps"] as Int
     )
 }
